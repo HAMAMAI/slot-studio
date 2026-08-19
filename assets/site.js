@@ -94,14 +94,14 @@
       'Нужен короткий расчёт и предложение по запуску.'
     ].filter(Boolean).join('\n');
 
+    const share = `https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent(message)}`;
+    window.open(share, '_blank', 'noopener,noreferrer');
     try {
       await navigator.clipboard.writeText(message);
       showToast('Бриф скопирован — выберите адресата в Telegram');
     } catch {
       showToast('Telegram открыт — текст готов к отправке');
     }
-    const share = `https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent(message)}`;
-    window.open(share, '_blank', 'noopener,noreferrer');
   });
 
   const year = $('#year');
