@@ -8,6 +8,7 @@
   const times = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
   const busy = new Set(['C1-10:00', 'C1-18:00', 'C2-12:00', 'C2-20:00', 'C3-08:00', 'C3-16:00', 'C4-14:00', 'C4-18:00', 'C5-12:00', 'C5-22:00']);
   const money = (value) => `${new Intl.NumberFormat('ru-RU').format(value)} ₽`;
+  $$('.close').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
   const localDateKey = (date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');

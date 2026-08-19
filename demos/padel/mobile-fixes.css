@@ -5,13 +5,30 @@
 
   .hero h1 {
     margin: 55px 0 48px;
-    font-size: 21vw;
+    font-size: clamp(56px, 18vw, 92px);
     line-height: .82;
+  }
+
+  .section-heading h2,
+  .matches-head h2 {
+    font-size: clamp(48px, 15vw, 64px);
+    line-height: .84;
+  }
+
+  .academy-copy h2 {
+    font-size: clamp(54px, 17vw, 68px);
+    line-height: .92;
+    margin: 40px 0;
+  }
+
+  dialog {
+    max-height: calc(100dvh - 20px);
+    overflow-y: auto;
   }
 }
 
 @media (max-width: 370px) {
   .hero h1 {
-    font-size: 20vw;
+    font-size: 17.5vw;
   }
 }
