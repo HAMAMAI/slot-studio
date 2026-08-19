@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1159ff">
+  <meta name="description" content="RALLY — интерактивное демо падел-клуба с бронью корта и поиском партнёров.">
+  <title>RALLY — padel is better together</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="demo-strip"><b>DEMO / СЛОТ.</b><a href="../../">← Всё портфолио</a><span>ASTANA · KZ</span></div>
+  <header>
+    <a class="logo" href="#top"><i>R</i> RALLY</a>
+    <nav aria-label="Навигация"><a href="#courts">Корты</a><a href="#matches">Открытые игры</a><a href="#academy">Академия</a></nav>
+    <a class="header-button" href="#courts">Забронировать <span>↘</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="hero-copy">
+        <span class="kicker">PADEL CLUB / 5 INDOOR COURTS</span>
+        <h1>Better<br>together<span>.</span></h1>
+        <p>Бронируйте корт. Находите партнёров своего уровня. Приходите играть — всё остальное уже собрано.</p>
+        <div class="hero-actions"><a class="lime-button" href="#courts">Найти корт <span>→</span></a><button class="round-button" id="hero-match" type="button">Найти<br>партнёра ↗</button></div>
+      </div>
+      <div class="ball" aria-hidden="true"><span>R</span><i></i></div>
+      <div class="hero-score"><span>LIVE COURT 02</span><strong>40 <i>:</i> 30</strong><small>D+ / 02:14</small></div>
+      <div class="hero-corner">scroll to play <b>↓</b></div>
+    </section>
+
+    <section class="quick-facts"><div><strong>05</strong><span>панорамных<br>кортов</span></div><div><strong>07–02</strong><span>работаем<br>каждый день</span></div><div><strong>1 840</strong><span>игроков<br>в комьюнити</span></div><div><strong>38</strong><span>открытых игр<br>на неделе</span></div></section>
+
+    <section class="court-booking" id="courts">
+      <div class="section-heading"><span>01 / BOOK A COURT</span><h2>Ваш корт<br><em>уже ждёт.</em></h2><p>Выберите свободный слот. Хотите открыть игру для других — отметьте это перед подтверждением.</p></div>
+      <div class="date-row" id="date-row"></div>
+      <div class="schedule-shell">
+        <div class="schedule-scroll"><div class="schedule" id="schedule" aria-label="Расписание кортов"></div></div>
+        <aside class="court-order" aria-live="polite"><span>Выбранный слот</span><div id="order-empty" class="order-empty">Нажмите на свободное время в расписании</div><div id="order-content" hidden><div class="court-badge" id="order-court">C1</div><h3 id="order-date"></h3><p id="order-time"></p><div class="switch-row"><div><b>Открытая игра</b><small>Другие игроки смогут присоединиться</small></div><label class="switch"><input id="open-game" type="checkbox"><i></i></label></div><div class="level-row" id="level-row" hidden><span>Уровень</span><select id="game-level"><option>D</option><option selected>D+</option><option>C</option><option>C+</option><option>B</option></select></div><div class="court-price"><span>Аренда 90 минут</span><strong id="order-price">18 000 ₸</strong></div></div><button class="lime-button full" id="book-court" type="button" disabled>Продолжить <span>→</span></button></aside>
+      </div>
+    </section>
+
+    <section class="matches" id="matches">
+      <div class="matches-head"><span>02 / OPEN MATCHES</span><h2>Не хватает<br><em>одного?</em></h2><p>Присоединяйтесь к игре по уровню — без неловких сообщений в общий чат.</p></div>
+      <div class="match-grid" id="match-grid">
+        <article class="match-card" data-match="После работы" data-spots="1"><div class="match-top"><span>Сегодня · 20:30</span><b>D+</b></div><h3>После работы</h3><p>Court 03 · 90 минут</p><div class="players"><i>AK</i><i>DS</i><i>VM</i><i class="empty">+1</i></div><button type="button">Занять место <span>↗</span></button></article>
+        <article class="match-card lime-card" data-match="Morning rally" data-spots="2"><div class="match-top"><span>Завтра · 08:00</span><b>C</b></div><h3>Morning rally</h3><p>Court 01 · 90 минут</p><div class="players"><i>NA</i><i>RB</i><i class="empty">+2</i></div><button type="button">Занять место <span>↗</span></button></article>
+        <article class="match-card white-card" data-match="Girls americano" data-spots="3"><div class="match-top"><span>Сб · 18:00</span><b>D / D+</b></div><h3>Girls americano</h3><p>Courts 02–04 · 120 минут</p><div class="players"><i>AS</i><i>MK</i><i>YA</i><i>OL</i><i>+5</i><i class="empty">+3</i></div><button type="button">Занять место <span>↗</span></button></article>
+      </div>
+      <button class="find-partner" id="find-partner" type="button"><span>Не нашли свою игру?</span><strong>Собрать матч по уровню</strong><i>→</i></button>
+    </section>
+
+    <section class="academy" id="academy">
+      <div class="academy-court" aria-hidden="true"><span class="player-dot one">1</span><span class="player-dot two">2</span><span class="player-dot three">3</span><span class="player-dot four">4</span><div class="trajectory"></div></div>
+      <div class="academy-copy"><span>03 / ACADEMY</span><h2>С нуля<br>до первой<br>игры.</h2><p>Вводная тренировка, группа по уровню и первый открытый матч — один понятный маршрут вместо бесконечного поиска.</p><ul><li><b>01</b> тест уровня</li><li><b>04</b> игрока в группе</li><li><b>06</b> тренировок в блоке</li></ul><button type="button" class="blue-button" id="trial-button">Записаться на пробную <span>↗</span></button></div>
+    </section>
+  </main>
+
+  <footer><a class="logo" href="#top"><i>R</i> RALLY</a><p>ASTANA · DAILY 07:00–02:00</p><a href="../../">A DEMO BY СЛОТ. ↗</a></footer>
+
+  <dialog id="booking-dialog"><form method="dialog" id="booking-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>COURT CHECKOUT</span><h2>Собирайте<br>ракетки.</h2><div id="dialog-summary" class="dialog-summary"></div><label>Имя<input name="name" required placeholder="Как к вам обращаться"></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><button class="lime-button full" type="submit" value="default">Подтвердить демо <span>→</span></button><small>Демо не принимает оплату. Выбор сохранится только в браузере.</small></form></dialog>
+  <dialog id="partner-dialog"><form method="dialog" id="partner-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>PLAYER MATCH</span><h2>Найдём<br>ваших.</h2><label>Ваш уровень<select name="level"><option>Первый раз</option><option>D</option><option selected>D+</option><option>C</option><option>C+</option><option>B</option></select></label><label>Когда хотите играть<select name="time"><option>Утро до 11:00</option><option>Днём</option><option selected>Будни после 19:00</option><option>Выходные</option></select></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><button class="lime-button full" type="submit" value="default">Искать партнёров <span>→</span></button></form></dialog>
+  <dialog id="success-dialog"><div class="dialog-card success"><div class="success-ball">R</div><span>MATCH POINT</span><h2>Вы в игре.</h2><p id="success-text"></p><strong id="success-code"></strong><button class="lime-button full" type="button" id="success-close">Готово</button></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

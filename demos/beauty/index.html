@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ead6cf">
+  <meta name="description" content="ÉCLAT — интерактивное демо сайта beauty-студии с записью, предоплатой и листом ожидания.">
+  <title>éclat — beauty that finds time for you</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="demo-ribbon"><span>ДЕМО-ПРОДУКТ / СЛОТ.</span><a href="../../">Вернуться в портфолио ↗</a></div>
+  <header>
+    <a class="logo" href="#top">éclat</a>
+    <nav aria-label="Навигация"><a href="#services">услуги</a><a href="#masters">мастера</a><a href="#booking">запись</a></nav>
+    <a class="book-link" href="#booking">записаться <i>↘</i></a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-title">
+        <span class="eyebrow">BEAUTY STUDIO · MOSCOW</span>
+        <h1>Время<br><em>для себя</em><br>нашлось.</h1>
+        <p>Уход за волосами, ногтями и лицом — без звонков, ожидания ответа и вопроса «а какие есть окошки?»</p>
+        <a class="primary-button" href="#booking">Выбрать время <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="portrait"><i></i><b></b><span></span></div>
+        <div class="art-note"><span>next opening</span><strong>19:30</strong><small>сегодня</small></div>
+        <div class="orbit-text">care · color · shape · glow · </div>
+      </div>
+      <div class="hero-bottom"><span>01</span><p>Точная запись.<br>Бережный сервис.</p><i></i></div>
+    </section>
+
+    <section class="hot-slots">
+      <div class="hot-intro"><span>Горящие окна</span><h2>Сегодня можно.</h2><p>Отмена не должна превращаться в потерянный день — заберите свободное время со специальной ценой.</p></div>
+      <div class="hot-list" id="hot-list">
+        <button type="button" data-service="Маникюр + покрытие" data-master="София" data-time="15:30" data-price="2600"><span>15:30</span><b>Маникюр + покрытие</b><small>София · −20%</small><i>↗</i></button>
+        <button type="button" data-service="Стрижка + укладка" data-master="Лера" data-time="18:00" data-price="3400"><span>18:00</span><b>Стрижка + укладка</b><small>Лера · −15%</small><i>↗</i></button>
+        <button type="button" data-service="Уход для лица" data-master="Амина" data-time="19:30" data-price="3900"><span>19:30</span><b>Уход для лица</b><small>Амина · −20%</small><i>↗</i></button>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-title"><span>01 / SERVICES</span><h2>Выберите<br><em>своё.</em></h2></div>
+      <div class="service-grid">
+        <article class="service-card blush"><span>01</span><div class="service-symbol">N</div><h3>Nails</h3><p>Маникюр, укрепление, smart-педикюр и дизайн.</p><b>от 2 300 ₽</b><button type="button" data-category="nails">Выбрать услугу ↗</button></article>
+        <article class="service-card cream"><span>02</span><div class="service-symbol hair-symbol">H</div><h3>Hair</h3><p>Стрижки, окрашивание, укладки и восстановление.</p><b>от 3 400 ₽</b><button type="button" data-category="hair">Выбрать услугу ↗</button></article>
+        <article class="service-card wine"><span>03</span><div class="service-symbol">S</div><h3>Skin</h3><p>Уходы, массаж лица и сияние без фильтров.</p><b>от 3 900 ₽</b><button type="button" data-category="skin">Выбрать услугу ↗</button></article>
+      </div>
+    </section>
+
+    <section class="masters" id="masters">
+      <div class="master-art" aria-hidden="true"><div class="master-silhouette"><i></i><b></b></div><span>THE HANDS<br>YOU TRUST</span></div>
+      <div class="master-copy">
+        <span>02 / TEAM</span><h2>Три мастера.<br>Один стандарт.</h2><p>Мы показываем специализацию, портфолио и ближайшее время каждого мастера до записи — выбирать легко.</p>
+        <div class="master-lines"><button type="button" data-master="София"><b>София</b><span>nails / 6 лет</span><i>↗</i></button><button type="button" data-master="Лера"><b>Лера</b><span>hair / 8 лет</span><i>↗</i></button><button type="button" data-master="Амина"><b>Амина</b><span>skin / 7 лет</span><i>↗</i></button></div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="booking-heading"><span>03 / ONLINE BOOKING</span><h2>Запись без<br><em>переписки.</em></h2><p>Стоимость и доступное время видны сразу. Для фиксации окна — депозит 20%, остаток после визита.</p></div>
+      <div class="booking-app">
+        <div class="steps"><span class="active">1. Услуга</span><span>2. Мастер</span><span>3. Время</span><span>4. Готово</span></div>
+        <div class="app-body">
+          <div class="picker-column">
+            <div class="picker-block"><span class="picker-title">Что делаем?</span><div class="service-options" id="service-options"></div></div>
+            <div class="picker-block"><span class="picker-title">К кому?</span><div class="master-options" id="master-options"></div></div>
+          </div>
+          <div class="picker-column">
+            <div class="picker-block"><span class="picker-title">День</span><div class="date-options" id="date-options"></div></div>
+            <div class="picker-block"><span class="picker-title">Свободное время</span><div class="time-options" id="time-options"></div><button class="waitlist-link" type="button" id="waitlist-link">Нет удобного? Встать в лист ожидания →</button></div>
+          </div>
+          <aside class="order-card" aria-live="polite">
+            <span>Ваша запись</span><div class="order-empty" id="order-empty">Выберите услугу,<br>мастера и время</div><div class="order-content" id="order-content" hidden><b id="order-service"></b><p id="order-meta"></p><div><span>Стоимость</span><strong id="order-price"></strong></div><div><span>Депозит сегодня</span><strong id="order-deposit"></strong></div></div>
+            <button class="primary-button full" type="button" id="confirm-booking" disabled>Зафиксировать окно <span>→</span></button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="promise"><span>é</span><blockquote>«Если планы изменились — перенесём запись в два касания и сами предложим ваше окно тем, кто ждёт»</blockquote><p>бережный сервис без потерянных часов</p></section>
+  </main>
+
+  <footer><a class="logo" href="#top">éclat</a><p>beauty studio / everyday 09:00—22:00</p><a href="../../">demo by СЛОТ. ↗</a></footer>
+
+  <dialog id="contact-dialog"><form method="dialog" id="contact-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>Последний шаг</span><h2>Ваше окно<br>почти ваше.</h2><div class="dialog-order" id="dialog-order"></div><label>Имя<input name="name" required placeholder="Как к вам обращаться"></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><label class="consent"><input type="checkbox" required><i>Согласна на демо-сохранение записи в браузере</i></label><button class="primary-button full" type="submit" value="default">Подтвердить демо <span>→</span></button></form></dialog>
+  <dialog id="waitlist-dialog"><form method="dialog" id="waitlist-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>Лист ожидания</span><h2>Позовём<br>первыми.</h2><p>Отметьте удобный диапазон — если появится отмена, окно будет за вами 15 минут.</p><label>Когда удобно<select name="range"><option>Сегодня после 18:00</option><option>Завтра в любое время</option><option>Будни после 19:00</option><option>Выходные</option></select></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><button class="primary-button full" type="submit" value="default">Добавить в лист <span>→</span></button></form></dialog>
+  <dialog id="success-dialog"><div class="dialog-card success"><div class="success-flower">✦</div><span>Запись создана</span><h2>До встречи.</h2><p id="success-message"></p><strong id="success-code"></strong><button class="primary-button full" type="button" id="success-close">Готово</button></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

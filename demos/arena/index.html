@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07100e">
+  <meta name="description" content="NOIR ARENA — интерактивное демо сайта компьютерного клуба с картой мест и групповой бронью.">
+  <title>NOIR ARENA — play without waiting</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="demo-bar"><span>LIVE DEMO / СЛОТ.</span><a href="../../">← Вернуться в портфолио</a></div>
+  <header>
+    <a class="logo" href="#top">NOIR<span>//</span>ARENA</a>
+    <nav aria-label="Навигация">
+      <a href="#stations">Бронь</a><a href="#zones">Зоны</a><a href="#events">Турниры</a>
+    </nav>
+    <a class="header-cta" href="#stations">Выбрать ПК <span>↘</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <span class="terminal-label">ALMATY / OPEN 24·7 / PING 4 MS</span>
+        <h1>PLAY<br>WITHOUT<br><em>WAITING.</em></h1>
+        <p>36 машин. 4 зоны. Ваша команда садится рядом — без звонка администратору.</p>
+        <a class="acid-button" href="#stations">Забронировать места <span>→</span></a>
+      </div>
+      <div class="hero-rig" aria-hidden="true">
+        <div class="rig-screen">
+          <div class="scanline"></div>
+          <span class="screen-status">● SYSTEM ONLINE</span>
+          <strong>240<br>FPS</strong>
+          <small>RTX 5070 / 360 HZ</small>
+          <div class="screen-data"><i>CPU 42°</i><i>GPU 51°</i><i>NET 4MS</i></div>
+        </div>
+        <div class="rig-base"></div>
+      </div>
+      <div class="hero-side"><span>SCROLL</span><i></i><b>01</b></div>
+    </section>
+
+    <div class="ticker" aria-label="Преимущества клуба">
+      <div><span>RTX 5070</span><i>✦</i><span>BENQ 360 HZ</span><i>✦</i><span>ГРУППОВАЯ БРОНЬ</span><i>✦</i><span>PS5 PRO</span><i>✦</i><span>24 / 7</span><i>✦</i><span>RTX 5070</span><i>✦</i><span>BENQ 360 HZ</span></div>
+    </div>
+
+    <section class="booking" id="stations">
+      <div class="section-intro">
+        <span>01 / BOOKING CORE</span>
+        <h2>Соберите<br><em>свой ряд.</em></h2>
+        <p>Выберите дату, время и места. Зелёные ПК свободны, серые уже заняты.</p>
+      </div>
+
+      <div class="booking-shell">
+        <div class="booking-controls">
+          <div class="control-block">
+            <span class="control-label">Дата</span>
+            <div class="date-tabs" id="date-tabs"></div>
+          </div>
+          <div class="control-block">
+            <span class="control-label">Начало</span>
+            <div class="time-tabs" id="time-tabs">
+              <button type="button" data-time="16:00">16:00</button>
+              <button type="button" data-time="18:00" class="active">18:00</button>
+              <button type="button" data-time="20:00">20:00</button>
+              <button type="button" data-time="22:00">22:00</button>
+              <button type="button" data-time="00:00">00:00</button>
+            </div>
+          </div>
+          <div class="control-block duration-block">
+            <span class="control-label">Длительность <output id="duration-value">3 часа</output></span>
+            <input id="duration" type="range" min="1" max="8" value="3">
+          </div>
+        </div>
+
+        <div class="floor-head">
+          <div class="zone-tabs" id="zone-tabs">
+            <button class="active" type="button" data-zone="all">Все зоны</button>
+            <button type="button" data-zone="standard">Standard</button>
+            <button type="button" data-zone="pro">Pro</button>
+            <button type="button" data-zone="vip">VIP</button>
+          </div>
+          <button class="group-pick" type="button" id="group-pick">Подобрать 5 рядом</button>
+        </div>
+
+        <div class="floor-wrap">
+          <div class="floor-map" id="floor-map" aria-label="Карта игровых мест"></div>
+          <div class="floor-legend"><span><i class="free"></i>Свободно</span><span><i class="selected"></i>Выбрано</span><span><i class="busy"></i>Занято</span></div>
+        </div>
+
+        <aside class="booking-summary" aria-live="polite">
+          <div>
+            <span class="summary-label">Ваш выбор</span>
+            <strong id="seat-count">0 мест</strong>
+            <small id="seat-names">Выберите ПК на карте</small>
+          </div>
+          <div class="summary-price"><span>Итого</span><strong id="total-price">0 ₸</strong><small id="price-note">тариф зависит от зоны</small></div>
+          <button class="confirm-button" type="button" id="open-booking" disabled>Продолжить <span>→</span></button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="zones" id="zones">
+      <div class="zone-card zone-standard">
+        <span>01 / STANDARD</span><h3>240 HZ</h3><p>RTX 4060 Ti · Ryzen 7500F<br>20 мест в общем зале</p><b>от 900 ₸ / час</b>
+      </div>
+      <div class="zone-card zone-pro">
+        <span>02 / PRO</span><h3>360 HZ</h3><p>RTX 5070 · Ryzen 7800X3D<br>10 мест для рейтинга</p><b>от 1 300 ₸ / час</b>
+      </div>
+      <div class="zone-card zone-vip">
+        <span>03 / VIP</span><h3>5 × PC</h3><p>Изолированный bootcamp<br>с собственным экраном</p><b>от 8 000 ₸ / час</b>
+      </div>
+    </section>
+
+    <section class="events" id="events">
+      <div class="event-poster">
+        <span class="event-kicker">NEXT EVENT / 29 AUG</span>
+        <h2>NOIR<br>CUP<span>’26</span></h2>
+        <p>CS2 · 5×5 · BO1 / BO3 FINAL</p>
+        <div class="prize"><span>PRIZE POOL</span><strong>300 000 ₸</strong></div>
+      </div>
+      <div class="event-info">
+        <span>02 / EVENTS</span>
+        <h3>Командная регистрация за две минуты.</h3>
+        <ul><li><b>12</b> команд</li><li><b>03</b> свободных слота</li><li><b>29.08</b> старт в 11:00</li></ul>
+        <button type="button" class="outline-button" id="tournament-button">Заявить команду <span>↗</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="logo" href="#top">NOIR<span>//</span>ARENA</a><p>DEMO PRODUCT BY СЛОТ. · 2026</p><a href="../../">Портфолио ↗</a></footer>
+
+  <dialog id="booking-dialog">
+    <form method="dialog" class="dialog-card" id="booking-form">
+      <button class="dialog-close" value="cancel" aria-label="Закрыть">×</button>
+      <span class="dialog-step">FINAL STEP / 60 SEC</span>
+      <h2>Зафиксировать<br>места</h2>
+      <div class="dialog-order" id="dialog-order"></div>
+      <label>Telegram для подтверждения<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label>
+      <label>Имя капитана<input name="name" required placeholder="Как к вам обращаться"></label>
+      <label class="check"><input name="notify" type="checkbox" checked><span>Сообщить, если освободится VIP</span></label>
+      <button class="acid-button full" type="submit" value="default">Забронировать демо <span>→</span></button>
+      <small>Демо не списывает деньги. Бронь сохранится только в этом браузере.</small>
+    </form>
+  </dialog>
+
+  <dialog id="success-dialog">
+    <div class="dialog-card success-card">
+      <span class="success-mark">✓</span><span class="dialog-step">BOOKING LOCKED</span>
+      <h2>Места ваши.</h2><p id="success-copy"></p><strong id="booking-code"></strong>
+      <button class="acid-button full" type="button" id="success-close">Готово</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status">Подобрали один ряд на пятерых</div>
+</body>
+</html>

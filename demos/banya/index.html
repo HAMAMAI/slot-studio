@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Демо сайта банного пространства: программы, свободные окна, конструктор вечера и лист ожидания.">
+  <title>ТИШЬ — банный дом</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="demo-strip">
+    <span>Интерактивный демо-проект студии «СЛОТ.»</span>
+    <a href="../../">← Вернуться в портфолио</a>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="ТИШЬ, на главную">
+      <span class="logo-mark">Т</span>
+      <span>ТИШЬ<small>банный дом · Москва</small></span>
+    </a>
+    <nav aria-label="Главная навигация">
+      <a href="#rituals">Программы</a>
+      <a href="#builder">Собрать вечер</a>
+      <a href="#slots">Свободные окна</a>
+    </nav>
+    <button class="header-book" type="button" data-jump-builder>Подобрать программу <span>↘</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="steam steam-one" aria-hidden="true"></div>
+      <div class="steam steam-two" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Частный банный дом · до 10 гостей</p>
+        <h1>Здесь<br><em>можно</em><br>выдохнуть.</h1>
+        <div class="hero-bottom">
+          <p>Парение, купель, тишина и длинный стол. Выберите готовую программу или соберите свой вечер за две минуты.</p>
+          <button class="circle-cta" type="button" data-jump-builder><span>Собрать<br>вечер</span><b>↓</b></button>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Абстрактная иллюстрация камней и пара">
+        <div class="sun"></div>
+        <div class="stone stone-one"></div>
+        <div class="stone stone-two"></div>
+        <div class="stone stone-three"></div>
+        <div class="ladle">╱</div>
+        <p>38°<small>купель</small></p>
+      </div>
+      <div class="hero-date">
+        <span>Ближайшее окно</span>
+        <strong id="next-slot">21 авг · 18:30</strong>
+        <button type="button" data-quick-slot="21 авг · 18:30">Забрать <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="running-line" aria-label="Особенности">
+      <div>Пар-мастер <i>✦</i> Липовая парная <i>✦</i> Купель <i>✦</i> Чайная церемония <i>✦</i> Только ваша компания <i>✦</i></div>
+    </section>
+
+    <section class="intro">
+      <p class="section-index">01 / О доме</p>
+      <div class="intro-copy">
+        <h2>Не аренда бани.<br><em>Сценарий отдыха.</em></h2>
+        <p>Встречаем, прогреваем, парим и оставляем вам пространство без посторонних. Всё нужное уже внутри программы — от травяного чая до тёплых халатов.</p>
+      </div>
+      <dl>
+        <div><dt>4.9</dt><dd>средняя оценка гостей</dd></div>
+        <div><dt>01</dt><dd>компания в доме</dd></div>
+        <div><dt>12</dt><dd>ритуалов на выбор</dd></div>
+      </dl>
+    </section>
+
+    <section class="rituals" id="rituals">
+      <div class="section-head light">
+        <p class="section-index">02 / Программы</p>
+        <h2>Выберите<br><em>ритм.</em></h2>
+        <p>Три готовых сценария. Каждый можно изменить в конструкторе.</p>
+      </div>
+      <div class="ritual-grid">
+        <article class="ritual-card sand" data-program="Тихий вечер" data-price="18000" data-duration="3">
+          <div class="ritual-top"><span>01</span><small>до 4 гостей · 3 часа</small></div>
+          <div class="ritual-symbol moon" aria-hidden="true"></div>
+          <h3>Тихий<br>вечер</h3>
+          <ul><li>мягкий прогрев</li><li>одно парение</li><li>купель и чай</li></ul>
+          <button type="button" class="program-pick">от 18 000 ₽ <span>Выбрать →</span></button>
+        </article>
+        <article class="ritual-card clay" data-program="Полный круг" data-price="29000" data-duration="4">
+          <div class="ritual-top"><span>02</span><small>до 6 гостей · 4 часа</small></div>
+          <div class="ritual-symbol rings" aria-hidden="true"></div>
+          <h3>Полный<br>круг</h3>
+          <ul><li>два парения</li><li>скрабирование</li><li>сезонный стол</li></ul>
+          <button type="button" class="program-pick">от 29 000 ₽ <span>Выбрать →</span></button>
+        </article>
+        <article class="ritual-card dark" data-program="Большой сбор" data-price="42000" data-duration="5">
+          <div class="ritual-top"><span>03</span><small>до 10 гостей · 5 часов</small></div>
+          <div class="ritual-symbol eclipse" aria-hidden="true"></div>
+          <h3>Большой<br>сбор</h3>
+          <ul><li>три парения</li><li>контрастный ритуал</li><li>ужин за длинным столом</li></ul>
+          <button type="button" class="program-pick">от 42 000 ₽ <span>Выбрать →</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="builder" id="builder">
+      <div class="builder-heading">
+        <p class="section-index">03 / Конструктор</p>
+        <h2>Соберите<br><em>свой вечер.</em></h2>
+        <p>Цена и состав меняются сразу. Никаких уточнений в десяти сообщениях.</p>
+      </div>
+      <div class="builder-shell">
+        <div class="builder-steps">
+          <fieldset>
+            <legend><span>01</span> Сколько вас?</legend>
+            <div class="segmented" id="guest-options">
+              <button type="button" data-guests="2">2</button>
+              <button type="button" data-guests="4" class="active">4</button>
+              <button type="button" data-guests="6">6</button>
+              <button type="button" data-guests="8">8</button>
+              <button type="button" data-guests="10">10</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span>02</span> Сколько времени?</legend>
+            <div class="segmented wide" id="duration-options">
+              <button type="button" data-duration="3" class="active"><b>3 часа</b><small>не спеша</small></button>
+              <button type="button" data-duration="4"><b>4 часа</b><small>оптимально</small></button>
+              <button type="button" data-duration="5"><b>5 часов</b><small>полный вечер</small></button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span>03</span> Добавить ритуалы</legend>
+            <div class="addon-list" id="addon-options">
+              <label><input type="checkbox" value="4500" data-name="Авторское парение"><i></i><span><b>Авторское парение</b><small>индивидуально · 40 минут</small></span><strong>+4 500 ₽</strong></label>
+              <label><input type="checkbox" value="2800" data-name="Медово-солевой скраб"><i></i><span><b>Медово-солевой скраб</b><small>для каждого гостя</small></span><strong>+2 800 ₽</strong></label>
+              <label><input type="checkbox" value="6500" data-name="Сезонный стол"><i></i><span><b>Сезонный стол</b><small>закуски, горячее, напитки</small></span><strong>+6 500 ₽</strong></label>
+              <label><input type="checkbox" value="3000" data-name="Чайная церемония"><i></i><span><b>Чайная церемония</b><small>три сорта и сопровождение</small></span><strong>+3 000 ₽</strong></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span>04</span> Выберите окно</legend>
+            <div class="builder-dates" id="builder-dates"></div>
+            <div class="builder-times" id="builder-times"></div>
+          </fieldset>
+        </div>
+        <aside class="order-card" aria-live="polite">
+          <div class="order-steam" aria-hidden="true">≈</div>
+          <span>Ваш вечер</span>
+          <h3 id="order-title">Тишина на четверых</h3>
+          <dl>
+            <div><dt>Гости</dt><dd id="order-guests">4 человека</dd></div>
+            <div><dt>Время</dt><dd id="order-duration">3 часа</dd></div>
+            <div><dt>Дата</dt><dd id="order-date">Выберите окно</dd></div>
+            <div><dt>Ритуалы</dt><dd id="order-addons">Без дополнений</dd></div>
+          </dl>
+          <div class="order-price"><span>Стоимость вечера<small>предоплата 20%</small></span><strong id="order-price">18 000 ₽</strong></div>
+          <button class="order-submit" id="order-submit" type="button" disabled>Забронировать <span>→</span></button>
+          <small class="order-note">Окно удерживается 15 минут после заявки</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slots" id="slots">
+      <div class="section-head">
+        <p class="section-index">04 / Ближайшие окна</p>
+        <h2>Если хочется<br><em>уже сейчас.</em></h2>
+        <p>Отменившиеся и короткие окна — со специальными условиями.</p>
+      </div>
+      <div class="slot-list">
+        <button type="button" data-quick-slot="21 авг · 18:30"><span><b>Чт</b>21 августа</span><strong>18:30—22:00</strong><small>−15% · до 4 гостей</small><i>Забрать →</i></button>
+        <button type="button" data-quick-slot="23 авг · 11:00"><span><b>Сб</b>23 августа</span><strong>11:00—15:00</strong><small>утренний тариф · до 6</small><i>Забрать →</i></button>
+        <button type="button" data-quick-slot="27 авг · 19:00"><span><b>Ср</b>27 августа</span><strong>19:00—00:00</strong><small>полный круг · до 8</small><i>Забрать →</i></button>
+      </div>
+      <button class="waitlist-button" type="button" id="waitlist-open"><span>Нужной даты нет?</span><strong>Встать в лист ожидания</strong><i>↗</i></button>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-art"><span>≈</span><i></i><b>тишина<br>начинается<br>здесь</b></div>
+      <blockquote>«После хорошего пара разговор становится тише, а мысли — яснее».</blockquote>
+      <p>Приезжайте своей компанией. Остальное мы уже продумали.</p>
+      <button type="button" data-jump-builder>Собрать вечер <span>↘</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#top"><span class="logo-mark">Т</span><span>ТИШЬ<small>банный дом · Москва</small></span></a>
+    <div><span>Ежедневно · 10:00—01:00</span><span>Адрес откроется после бронирования</span></div>
+    <div><span>Telegram</span><span>+7 900 000-00-00</span></div>
+    <small>Концепт студии «СЛОТ.» · 2026</small>
+  </footer>
+
+  <dialog id="booking-dialog">
+    <form method="dialog" class="dialog-card" id="booking-form">
+      <button class="dialog-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+      <span>Финальный шаг</span>
+      <h2>Оставьте<br>контакт.</h2>
+      <div class="dialog-summary" id="dialog-summary"></div>
+      <label>Как к вам обращаться<input name="name" required autocomplete="name" placeholder="Имя"></label>
+      <label>Telegram или телефон<input name="contact" required autocomplete="tel" placeholder="@username или +7 900 000-00-00"></label>
+      <button class="dialog-submit" type="submit" value="default">Удержать окно <span>→</span></button>
+      <small>Демо-режим: данные сохраняются только в вашем браузере.</small>
+    </form>
+  </dialog>
+
+  <dialog id="waitlist-dialog">
+    <form method="dialog" class="dialog-card" id="waitlist-form">
+      <button class="dialog-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+      <span>Лист ожидания</span>
+      <h2>Сообщим<br>об отмене.</h2>
+      <label>Желаемая дата<input name="date" type="date" required></label>
+      <label>Размер компании<select name="guests"><option>2–4 гостя</option><option>5–6 гостей</option><option>7–10 гостей</option></select></label>
+      <label>Telegram<input name="contact" required placeholder="@username"></label>
+      <button class="dialog-submit" type="submit" value="default">Встать в лист <span>→</span></button>
+    </form>
+  </dialog>
+
+  <dialog id="success-dialog">
+    <div class="dialog-card success-card">
+      <div class="success-mark">≈</div>
+      <span>Заявка сохранена</span>
+      <h2 id="success-title">До встречи<br>в тишине.</h2>
+      <p id="success-text"></p>
+      <strong id="success-code"></strong>
+      <button class="dialog-submit" type="button" id="success-close">Готово</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
