@@ -218,13 +218,13 @@
             </select>
           </label>
           <label>Продаваемых слотов в день <output id="slots-output">36</output>
-            <input id="calc-slots" type="range" min="4" max="120" value="36" step="1">
+            <input id="calc-slots" type="range" min="4" max="120" value="36" step="1" aria-label="Продаваемых слотов в день">
           </label>
           <label>Средний чек <output id="check-output">1 400 ₽</output>
-            <input id="calc-check" type="range" min="500" max="15000" value="1400" step="100">
+            <input id="calc-check" type="range" min="500" max="15000" value="1400" step="100" aria-label="Средний чек">
           </label>
           <label>Пустует / отменяется <output id="loss-output">18%</output>
-            <input id="calc-loss" type="range" min="5" max="45" value="18" step="1">
+            <input id="calc-loss" type="range" min="5" max="45" value="18" step="1" aria-label="Доля пустых и отменённых слотов">
           </label>
         </div>
         <div class="calc-result" aria-live="polite">

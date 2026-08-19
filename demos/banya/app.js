@@ -10,10 +10,18 @@
     duration: 3,
     program: 'Тихий вечер',
     base: 18000,
+    included: ['Мягкий прогрев', 'Одно парение', 'Купель и чай'],
     addons: new Map(),
     date: '',
     dateLabel: '',
     time: ''
+  };
+
+  const localDateKey = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   const dates = Array.from({ length: 6 }, (_, index) => {
@@ -21,7 +29,7 @@
     value.setHours(12, 0, 0, 0);
     value.setDate(value.getDate() + index + 1);
     return {
-      iso: value.toISOString().slice(0, 10),
+      iso: localDateKey(value),
       label: monthDay.format(value).replace('.', ''),
       weekday: weekDay.format(value).replace('.', '')
     };
@@ -56,14 +64,12 @@
 
   function renderOrder() {
     $('#order-title').textContent = state.program === 'Свой вечер'
-      ? `Тишина на ${state.guests === 2 ? 'двоих' : state.guests === 4 ? 'четверых' : state.guests}`
+      ? `Вечер для ${pluralGuests(state.guests)}`
       : state.program;
     $('#order-guests').textContent = pluralGuests(state.guests);
     $('#order-duration').textContent = pluralHours(state.duration);
     $('#order-date').textContent = state.dateLabel && state.time ? `${state.dateLabel} · ${state.time}` : 'Выберите окно';
-    $('#order-addons').textContent = state.addons.size
-      ? [...state.addons.values()].map((item) => item.name).join(', ')
-      : 'Без дополнений';
+    $('#order-addons').textContent = [...state.included, ...[...state.addons.values()].map((item) => item.name)].join(', ');
     $('#order-price').textContent = `${money.format(total())} ₽`;
     $('#order-submit').disabled = !(state.date && state.time);
   }
@@ -71,6 +77,7 @@
   function setCustom() {
     state.program = 'Свой вечер';
     state.base = customBase();
+    state.included = ['Дом целиком', 'Парная', 'Купель и чай'];
   }
 
   function renderControls() {
@@ -110,9 +117,9 @@
   function choosePreset(card) {
     const program = card.dataset.program;
     const preset = {
-      'Тихий вечер': { guests: 4, duration: 3, base: 18000 },
-      'Полный круг': { guests: 6, duration: 4, base: 29000 },
-      'Большой сбор': { guests: 10, duration: 5, base: 42000 }
+      'Тихий вечер': { guests: 4, duration: 3, base: 18000, included: ['Мягкий прогрев', 'Одно парение', 'Купель и чай'] },
+      'Полный круг': { guests: 6, duration: 4, base: 29000, included: ['Два парения', 'Скрабирование', 'Сезонный стол'] },
+      'Большой сбор': { guests: 10, duration: 5, base: 42000, included: ['Три парения', 'Контрастный ритуал', 'Ужин за длинным столом'] }
     }[program];
     Object.assign(state, { ...preset, program });
     state.addons.clear();
@@ -131,8 +138,8 @@
       state.time = parts[1] || '';
       renderOrder();
     }
-    const addons = state.addons.size ? [...state.addons.values()].map((item) => item.name).join(', ') : 'без дополнений';
-    $('#dialog-summary').innerHTML = `<strong>${state.program}</strong><br>${pluralGuests(state.guests)} · ${pluralHours(state.duration)} · ${state.dateLabel} в ${state.time}<br>${addons}<br><b>${money.format(total())} ₽</b>`;
+    const composition = [...state.included, ...[...state.addons.values()].map((item) => item.name)].join(', ');
+    $('#dialog-summary').innerHTML = `<strong>${state.program}</strong><br>${pluralGuests(state.guests)} · ${pluralHours(state.duration)} · ${state.dateLabel} в ${state.time}<br>${composition}<br><b>${money.format(total())} ₽</b>`;
     $('#booking-dialog').showModal();
     document.body.classList.add('modal-open');
   }
@@ -154,9 +161,14 @@
     $('#success-text').textContent = text;
     $('#success-code').textContent = `ТШ-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
     $('#success-dialog').showModal();
+    document.body.classList.add('modal-open');
   }
 
   let toastTimer;
+  function syncModalState() {
+    document.body.classList.toggle('modal-open', Boolean($('dialog[open]')));
+  }
+
   function showToast(message) {
     const toast = $('#toast');
     toast.textContent = message;
@@ -225,12 +237,12 @@
     document.body.classList.remove('modal-open');
   });
 
-  $$('dialog').forEach((dialog) => dialog.addEventListener('click', (event) => {
-    if (event.target === dialog) {
-      dialog.close();
-      document.body.classList.remove('modal-open');
-    }
-  }));
+  $$('dialog').forEach((dialog) => {
+    dialog.addEventListener('close', () => requestAnimationFrame(syncModalState));
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
 
   renderDates();
   renderControls();

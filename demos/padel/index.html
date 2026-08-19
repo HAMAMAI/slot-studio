@@ -8,10 +8,11 @@
   <title>RALLY — padel is better together</title>
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./mobile-fixes.css">
   <script src="./app.js" defer></script>
 </head>
 <body>
-  <div class="demo-strip"><b>DEMO / СЛОТ.</b><a href="../../">← Всё портфолио</a><span>ASTANA · KZ</span></div>
+  <div class="demo-strip"><b>DEMO / СЛОТ.</b><a href="../../">← Всё портфолио</a><span>МОСКВА · ДЕМО-КЛУБ</span></div>
   <header>
     <a class="logo" href="#top"><i>R</i> RALLY</a>
     <nav aria-label="Навигация"><a href="#courts">Корты</a><a href="#matches">Открытые игры</a><a href="#academy">Академия</a></nav>
@@ -39,7 +40,7 @@
       <div class="date-row" id="date-row"></div>
       <div class="schedule-shell">
         <div class="schedule-scroll"><div class="schedule" id="schedule" aria-label="Расписание кортов"></div></div>
-        <aside class="court-order" aria-live="polite"><span>Выбранный слот</span><div id="order-empty" class="order-empty">Нажмите на свободное время в расписании</div><div id="order-content" hidden><div class="court-badge" id="order-court">C1</div><h3 id="order-date"></h3><p id="order-time"></p><div class="switch-row"><div><b>Открытая игра</b><small>Другие игроки смогут присоединиться</small></div><label class="switch"><input id="open-game" type="checkbox"><i></i></label></div><div class="level-row" id="level-row" hidden><span>Уровень</span><select id="game-level"><option>D</option><option selected>D+</option><option>C</option><option>C+</option><option>B</option></select></div><div class="court-price"><span>Аренда 90 минут</span><strong id="order-price">18 000 ₸</strong></div></div><button class="lime-button full" id="book-court" type="button" disabled>Продолжить <span>→</span></button></aside>
+        <aside class="court-order" aria-live="polite"><span>Выбранный слот</span><div id="order-empty" class="order-empty">Нажмите на свободное время в расписании</div><div id="order-content" hidden><div class="court-badge" id="order-court">C1</div><h3 id="order-date"></h3><p id="order-time"></p><div class="switch-row"><div><b>Открытая игра</b><small>Другие игроки смогут присоединиться</small></div><label class="switch"><input id="open-game" type="checkbox" aria-label="Сделать игру открытой"><i></i></label></div><div class="level-row" id="level-row" hidden><span>Уровень</span><select id="game-level"><option>D</option><option selected>D+</option><option>C</option><option>C+</option><option>B</option></select></div><div class="court-price"><span>Аренда 90 минут</span><strong id="order-price">6 500 ₽</strong></div></div><button class="lime-button full" id="book-court" type="button" disabled>Продолжить <span>→</span></button></aside>
       </div>
     </section>
 
@@ -59,10 +60,11 @@
     </section>
   </main>
 
-  <footer><a class="logo" href="#top"><i>R</i> RALLY</a><p>ASTANA · DAILY 07:00–02:00</p><a href="../../">A DEMO BY СЛОТ. ↗</a></footer>
+  <footer><a class="logo" href="#top"><i>R</i> RALLY</a><p>МОСКВА · ЕЖЕДНЕВНО 07:00–02:00</p><a href="../../">ДЕМО СТУДИИ «СЛОТ.» ↗</a></footer>
 
   <dialog id="booking-dialog"><form method="dialog" id="booking-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>COURT CHECKOUT</span><h2>Собирайте<br>ракетки.</h2><div id="dialog-summary" class="dialog-summary"></div><label>Имя<input name="name" required placeholder="Как к вам обращаться"></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><button class="lime-button full" type="submit" value="default">Подтвердить демо <span>→</span></button><small>Демо не принимает оплату. Выбор сохранится только в браузере.</small></form></dialog>
   <dialog id="partner-dialog"><form method="dialog" id="partner-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>PLAYER MATCH</span><h2>Найдём<br>ваших.</h2><label>Ваш уровень<select name="level"><option>Первый раз</option><option>D</option><option selected>D+</option><option>C</option><option>C+</option><option>B</option></select></label><label>Когда хотите играть<select name="time"><option>Утро до 11:00</option><option>Днём</option><option selected>Будни после 19:00</option><option>Выходные</option></select></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><button class="lime-button full" type="submit" value="default">Искать партнёров <span>→</span></button></form></dialog>
+  <dialog id="match-dialog"><form method="dialog" id="match-form" class="dialog-card"><button class="close" value="cancel" aria-label="Закрыть">×</button><span>OPEN MATCH</span><h2>Занять<br>место.</h2><div id="match-summary" class="dialog-summary"></div><label>Имя<input name="name" required placeholder="Как к вам обращаться"></label><label>Telegram<input name="telegram" required placeholder="@username" pattern="@?[A-Za-z0-9_]{5,}"></label><button class="lime-button full" type="submit" value="default">Подтвердить участие <span>→</span></button><small>Демо не принимает оплату. Заявка сохранится только в браузере.</small></form></dialog>
   <dialog id="success-dialog"><div class="dialog-card success"><div class="success-ball">R</div><span>MATCH POINT</span><h2>Вы в игре.</h2><p id="success-text"></p><strong id="success-code"></strong><button class="lime-button full" type="button" id="success-close">Готово</button></div></dialog>
   <div class="toast" id="toast" role="status"></div>
 </body>

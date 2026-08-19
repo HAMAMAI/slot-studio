@@ -1,0 +1,17 @@
+@media (max-width: 640px) {
+  .hero {
+    min-height: 860px;
+  }
+
+  .hero h1 {
+    margin: 55px 0 48px;
+    font-size: 21vw;
+    line-height: .82;
+  }
+}
+
+@media (max-width: 370px) {
+  .hero h1 {
+    font-size: 20vw;
+  }
+}
